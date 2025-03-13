@@ -1,6 +1,8 @@
 services:
   farm:
-    image: ghcr.io/bekosa/destructive-farm:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./database:/var/destructivefarm/
       - ./server/config.py:/app/server/config.py
