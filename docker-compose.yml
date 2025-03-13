@@ -1,0 +1,11 @@
+services:
+  farm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./database:/var/destructivefarm/
+      - ./server/config.py:/app/server/config.py
+      - ./server/protocols:/app/server/protocols
+    ports:
+      - 5000:5000
