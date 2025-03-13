@@ -19,7 +19,7 @@ jobs:
           login_registry: ghcr.io
           login_username: ${{ secrets.REGISTRY_USERNAME }}
           login_password: ${{ secrets.REGISTRY_PASSWORD }}
-          tags: ghcr.io/bambuk/Destructive-Farm:latest
+          tags: ghcr.io/bambuk/destructive-farm:latest
           dockerfile: Dockerfile
           # Use those security flags if using GitHub Action. Keep the defaults, if using Gitea.
           security: |
