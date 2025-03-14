@@ -1,25 +1,118 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
+/* Импорт нового шрифта Rajdhani */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
 
-.navbar-brand {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 19px;
-    font-weight: 300;
-    padding: 15px 15px;
+/* Цветовые переменные */
+:root {
+    --primary-color: #000000; /* Чёрный */
+    --secondary-color: #2a2a2a; /* Тёмно-серый */
+    --text-color: #ffffff; /* Белый */
 }
 
+/* Глобальные стили */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #121212;
+    color: var(--text-color);
+}
+
+/* Навигационная панель */
+.navbar {
+    background-color: var(--primary-color) !important;
+    padding: 10px 20px;
+}
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color) !important;
+}
+
+/* Стили для таблицы */
+.table {
+    border: 1px solid #2a2a2a;
+    background-color: #222; /* Фон всей таблицы */
+}
+.table thead {
+    background-color: var(--primary-color) !important; /* Шапка таблицы - чёрная */
+    color: var(--text-color) !important; /* Белый текст */
+}
+.table th {
+    background-color: var(--primary-color) !important; /* Чёрный фон заголовков */
+    color: var(--text-color) !important; /* Белый текст */
+    font-weight: bold;
+    padding: 12px;
+    text-transform: uppercase;
+    border-bottom: none !important;
+}
+.table tbody tr {
+    background-color: #1a1a1a; /* Затемнённый фон строк */
+}
+.table-hover tbody tr:hover {
+    background-color: #333 !important;
+}
+
+/* Карточки и колонки */
+.card-body {
+    background-color: var(--secondary-color) !important; /* Серый фон */
+    border-radius: 5px;
+    padding: 15px;
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+.btn-primary:hover {
+    background-color: #222;
+    border-color: #222;
+}
+
+/* Текстовые поля */
+.form-control {
+    background-color: #222;
+    border: 1px solid #444;
+    color: var(--text-color);
+}
+.form-control:focus {
+    background-color: #111;
+    border-color: #555;
+    color: var(--text-color);
+}
+
+/* Логотип */
 .logo {
     height: 30px;
 }
 
-.table td {
-    font-size: 14px;
-    padding: 0.65rem 0.75rem;
-}
-
+/* Текстовые области */
 textarea {
     resize: none;
+    background-color: #222;
+    border: 1px solid #444;
+    color: var(--text-color);
 }
 
+/* Поля для ввода текста */
 #text-with-flags {
     height: 80px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: var(--text-color);
+}
+
+/* Центрируем заголовки полей ввода */
+.card-body label,
+.col-lg-4 label {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Центрируем поля ввода */
+.card-body .form-control,
+.col-lg-4 .form-control {
+    display: block;
+    margin: auto; /* Центрируем */
+    text-align: center;
 }
