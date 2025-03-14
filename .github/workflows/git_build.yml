@@ -6,6 +6,7 @@ on:
 
 env:
   IMAGE_NAME: destructive-farm
+  REPO_LOWER: "${{ format('{0}/{1}', github.repository_owner, github.event.repository.name) }}"
 
 jobs:
   build-and-push:
@@ -31,6 +32,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ lower(github.repository) }}/$IMAGE_NAME:latest
+            ghcr.io/${{ env.REPO_LOWER }}/$IMAGE_NAME:latest
           labels: |
             org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
