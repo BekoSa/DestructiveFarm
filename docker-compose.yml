@@ -1,6 +1,6 @@
 services:
   farm:
-    image: ghcr.io/bekosa/destructive-farm:latest
+    image: ghcr.io/bekosa/destructivefarm:master
     volumes:
       - ./database:/var/destructivefarm/
       - ./server/config.py:/app/server/config.py
