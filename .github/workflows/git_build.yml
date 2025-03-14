@@ -32,6 +32,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ env.REPO_LOWER }}/$IMAGE_NAME:latest
+            ghcr.io/${{ github.repository }}/${{ env.IMAGE_NAME}}:latest
           labels: |
             org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
