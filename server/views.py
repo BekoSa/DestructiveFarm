@@ -6,6 +6,7 @@ from flask import jsonify, render_template, request
 
 from server import app, auth, database, reloader
 from server.models import FlagStatus
+from server.submit_loop import run_loop
 
 
 @app.template_filter('timestamp_to_datetime')
@@ -97,5 +98,7 @@ def post_flags_manual():
     db.executemany("INSERT OR IGNORE INTO flags (flag, sploit, team, time, status) "
                    "VALUES (?, ?, ?, ?, ?)", rows)
     db.commit()
+
+    run_loop()
 
     return ''
