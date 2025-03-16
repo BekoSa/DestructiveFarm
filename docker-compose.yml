@@ -1,6 +1,6 @@
 services:
   farm:
-    image: ghcr.io/bekosa/destructivefarm:master
+    image: ghcr.io/bekosa/destructivefarm:1.1
     volumes:
       - ./database:/var/destructivefarm/
       - ./server/config.py:/app/server/config.py
@@ -9,7 +9,7 @@ services:
       - 5000:5000
 
   worker:
-    image: ghcr.io/bekosa/destructivefarm:master
+    image: ghcr.io/bekosa/destructivefarm:1.1
     container_name: huey_worker
     # Запускаем Huey worker для обработки фоновых задач
     entrypoint: huey_consumer.py server.standalone.huey -w 4
