@@ -5,6 +5,8 @@ from flask import request, jsonify
 from server import app, auth, database, reloader
 from server.models import FlagStatus
 from server.spam import is_spam_flag
+from server.submit_loop import run_loop
+from server.huey_config import huey
 
 
 @app.route('/api/get_config')
@@ -29,5 +31,6 @@ def post_flags():
     db.executemany("INSERT OR IGNORE INTO flags (flag, sploit, team, time, status) "
                    "VALUES (?, ?, ?, ?, ?)", rows)
     db.commit()
-
+    if huey.__len__() == 0:
+        run_loop()
     return ''

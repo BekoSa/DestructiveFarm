@@ -6,6 +6,8 @@ from flask import jsonify, render_template, request
 
 from server import app, auth, database, reloader
 from server.models import FlagStatus
+from server.submit_loop import run_loop
+from server.huey_config import huey
 
 
 @app.template_filter('timestamp_to_datetime')
@@ -97,5 +99,8 @@ def post_flags_manual():
     db.executemany("INSERT OR IGNORE INTO flags (flag, sploit, team, time, status) "
                    "VALUES (?, ?, ?, ?, ?)", rows)
     db.commit()
+
+    if huey.__len__() == 0:
+        run_loop()
 
     return ''
