@@ -88,7 +88,7 @@ def run_loop():
     len_flags = db.execute("SELECT COUNT(*) FROM flags WHERE status = ?", (FlagStatus.QUEUED.name,)).fetchone()[0]
 
     submit_spent = time.time() - submit_start_time
-    if len_flags > 0:
+    if len_flags > 0 and huey.__len__() == 0:
         run_loop.schedule(delay=config['SUBMIT_PERIOD'] - submit_spent)
 
 

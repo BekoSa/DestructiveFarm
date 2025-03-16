@@ -19,3 +19,5 @@ services:
     entrypoint: huey_consumer.py server.standalone.huey -w 4
     volumes:
       - ./database:/var/destructivefarm/
+      - ./server/config.py:/app/server/config.py
+      - ./server/protocols:/app/server/protocols
