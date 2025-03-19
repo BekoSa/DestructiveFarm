@@ -4,6 +4,7 @@ import importlib
 import random
 import time
 from collections import defaultdict
+import logging
 
 from server import app, database, reloader
 from server.huey_config import huey
@@ -89,6 +90,8 @@ def run_loop():
 
     submit_spent = time.time() - submit_start_time
     if len_flags > 0 and huey.__len__() == 0:
+        huey.storage.flush_queue()
+        huey.storage.flush_schedule()
         run_loop.schedule(delay=config['SUBMIT_PERIOD'] - submit_spent)
 
 
