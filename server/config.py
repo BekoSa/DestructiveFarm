@@ -10,9 +10,13 @@ CONFIG = {
     # This configures how and where to submit flags.
     # The protocol must be a module in protocols/ directory.
 
-    'SYSTEM_PROTOCOL': 'ructf_tcp',
-    'SYSTEM_HOST': '127.0.0.1',
-    'SYSTEM_PORT': 31337,
+    # 'SYSTEM_PROTOCOL': 'ructf_tcp',
+    # 'SYSTEM_HOST': '127.0.0.1',
+    # 'SYSTEM_PORT': 31337,
+
+    'SYSTEM_PROTOCOL': 'ctf01d',
+    'SYSTEM_URL': 'http://127.0.0.1/flag',
+    'SYSTEM_TOKEN': '123',
 
     # 'SYSTEM_PROTOCOL': 'ructf_http',
     # 'SYSTEM_URL': 'http://monitor.ructfe.org/flags',

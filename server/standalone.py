@@ -1,7 +1,3 @@
-import threading
-import werkzeug.serving
-
-
 from server import app, database
 from server.models import FlagStatus
 from server.huey_config import huey
